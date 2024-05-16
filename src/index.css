@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+:root {
+  --main-bg-color: #040711;
+  --text-bg-color: #121826cc;
+  --btn-bg-color: #3662e3;
+  --btn-outline-color: #7ca9f3;
+  --btn-active-text-color: #4d5562;
+  --text-active-color: #f9fafb;
+  --text-outline-color: #cdd5e0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
+.App {
+  background: var(--main-bg-color) url(../public/images/hero_img.jpg) no-repeat;
+  background-size: contain;
+  padding: 2rem;
+  text-align: center;
+}
+
+#main,
+#translate {
+  background-color: var(--text-bg-color);
+  color: var(--btn-active-text-color);
+  width: 100%;
+  height: 320px;
+  border: 0.5px solid var(--btn-active-text-color);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+}
+
+.language-btn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+button {
+  color: var(--btn-active-text-color);
+  border: none;
+  background-color: transparent;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+button:hover,
+button:active {
+  color: var(--text-active-color);
+  background-color: var(--btn-active-text-color);
+  border-radius: 10px;
+}
+
+.expand-down {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.expand-down span {
+  margin-left: 0.3rem;
+  display: flex;
+}
+
+hr {
+  border: 0.5px solid var(--btn-active-text-color);
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 100%;
+
+  position: relative;
+}
+
+textarea {
+  background-color: transparent;
+  color: var(--text-active-color);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 90%;
+  padding: 1rem;
+  resize: none;
+}
+
+.word-counts {
+  font-size: 12px;
+  color: gray;
+  position: absolute;
+  top: 140px;
+  right: 0;
+  width: max-content;
+}
+
+.action-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 170px;
+  right: 0;
+  height: auto;
+}
+
+.svg-container {
+  display: flex;
+}
+
+.action {
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  border-radius: 10px;
+  border: 3px solid var(--btn-active-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn {
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background-color: var(--btn-bg-color);
+  color: var(--text-active-color);
+
+  display: flex;
+  align-items: center;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+  border: 1px solid var(--btn-outline-color);
+}
+
+.submit-btn span {
+  margin-right: 0.5rem;
+}
+
+.translate-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.translate-btns .action {
+  margin-bottom: 1rem;
+  margin-right: 0;
+}
