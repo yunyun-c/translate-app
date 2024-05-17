@@ -20,22 +20,46 @@
 }
 
 .App {
+  width: 100vw;
+  height: auto;
   background: var(--main-bg-color) url(../public/images/hero_img.jpg) no-repeat;
   background-size: contain;
   padding: 2rem;
   text-align: center;
 }
 
+.logo {
+  margin: 4rem;
+}
+
+.translate-container {
+  display: grid;
+  grid:
+    "main" 320px
+    "translate" 320px
+    / 90%;
+  gap: 1rem;
+
+  justify-content: center;
+}
+
+#main {
+  grid-area: main;
+}
+#translate {
+  grid-area: translate;
+}
+
 #main,
 #translate {
   background-color: var(--text-bg-color);
   color: var(--btn-active-text-color);
-  width: 100%;
-  height: 320px;
+  /* width: 100%;
+  height: 320px; */
   border: 0.5px solid var(--btn-active-text-color);
   border-radius: 20px;
   padding: 2rem;
-  margin: 2rem auto;
+  /* margin: 1rem auto; */
 }
 
 .language-btn {
@@ -136,6 +160,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
 .submit-btn {
@@ -151,6 +177,7 @@ textarea {
 
 .submit-btn:hover,
 .submit-btn:active {
+  background-color: var(--btn-bg-color);
   border: 1px solid var(--btn-outline-color);
 }
 
@@ -167,4 +194,20 @@ textarea {
 .translate-btns .action {
   margin-bottom: 1rem;
   margin-right: 0;
+}
+
+/* Styles for desktops and laptops */
+@media only screen and (min-width: 1024px) {
+  .App {
+    height: 100vh;
+    background-size: cover;
+  }
+
+  .translate-container {
+    margin: auto;
+    display: grid;
+    grid:
+      "main translate" 320px
+      / 45% 45%;
+  }
 }
