@@ -35,7 +35,7 @@
 .translate-container {
   display: grid;
   grid:
-    "main" 320px
+    "user-input" 320px
     "translate" 320px
     / 90%;
   gap: 1rem;
@@ -43,14 +43,14 @@
   justify-content: center;
 }
 
-#main {
-  grid-area: main;
+#user-input {
+  grid-area: user-input;
 }
 #translate {
   grid-area: translate;
 }
 
-#main,
+#user-input,
 #translate {
   background-color: var(--text-bg-color);
   color: var(--btn-active-text-color);
@@ -123,6 +123,17 @@ textarea {
   height: 90%;
   padding: 1rem;
   resize: none;
+}
+
+p {
+  background-color: transparent;
+  color: var(--text-active-color);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 90%;
+  padding: 1rem;
+  text-align: left;
 }
 
 .word-counts {
@@ -207,7 +218,7 @@ textarea {
     margin: auto;
     display: grid;
     grid:
-      "main translate" 320px
+      "user-input translate" 320px
       / 45% 45%;
   }
 }
