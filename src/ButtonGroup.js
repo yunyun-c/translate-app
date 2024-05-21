@@ -24,7 +24,7 @@ const ButtonGroup = ({ buttons, selectedLanguage, setLanguage, expand }) => {
         value={button.value}
       >
         {button.label}
-        {expand && (
+        {button.expand && (
           <span>
             <ArrowIcon />
           </span>

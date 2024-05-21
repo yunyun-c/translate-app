@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonGroup from "./ButtonGroup";
 
-const SortIcon = () => (
-  <span className="action">
+const SortIcon = ({ onClick }) => (
+  <span className="action" onClick={onClick}>
     <svg
       width="20"
       height="20"
@@ -22,7 +22,23 @@ const SortIcon = () => (
   </span>
 );
 
-const TranslateBtn = ({ translateTo, setTranslateTo }) => {
+const TranslateBtn = ({
+  translateTo,
+  setTranslateTo,
+  text,
+  setText,
+  translatedText,
+}) => {
+  const [originalText, setOriginalText] = useState(text);
+  const [originalLanguage, setOriginalLanguage] = useState(translateTo);
+
+  const handleSortClick = () => {
+    setText(translatedText);
+    setTranslateTo(originalLanguage);
+    setOriginalText(text);
+    setOriginalLanguage(translateTo);
+  };
+
   return (
     <div className="translate-btns">
       <div className="language-btn">
@@ -38,7 +54,7 @@ const TranslateBtn = ({ translateTo, setTranslateTo }) => {
           ]}
         />
       </div>
-      <SortIcon />
+      <SortIcon onClick={handleSortClick} />
     </div>
   );
 };

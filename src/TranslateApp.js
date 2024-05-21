@@ -35,9 +35,16 @@ const TranslateApp = () => {
       `https://api.mymemory.translated.net/get?q=${text}&langpair=${language}|${translateTo}`
     );
 
-    console.log([text, language, translateTo]);
     const data = await response.json();
     setTranslatedText(data.responseData.translatedText);
+  };
+
+  const max_words = 500;
+  const handleTextChange = (e) => {
+    const newText = e.target.value;
+    if (newText.split(" ").length <= max_words) {
+      setText(newText);
+    }
   };
 
   return (
@@ -49,11 +56,13 @@ const TranslateApp = () => {
         <div className="text">
           <textarea
             value={text}
-            maxlength="500"
-            onChange={(e) => setText(e.target.value)}
+            maxlength={max_words}
+            onChange={handleTextChange}
           />
 
-          <span className="word-counts">13/500</span>
+          <span className="word-counts">
+            {text.split(" ").length}/{max_words}
+          </span>
           <div className="action-btn">
             <SoundCopy />
 
@@ -68,6 +77,9 @@ const TranslateApp = () => {
         <TranslateBtn
           translateTo={translateTo}
           setTranslateTo={setTranslateTo}
+          text={text}
+          setText={setText}
+          translatedText={translatedText}
         />
         <hr />
         <div className="text">
