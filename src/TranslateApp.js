@@ -35,6 +35,7 @@ const TranslateApp = () => {
       `https://api.mymemory.translated.net/get?q=${text}&langpair=${language}|${translateTo}`
     );
 
+    console.log([text, language, translateTo]);
     const data = await response.json();
     setTranslatedText(data.responseData.translatedText);
   };

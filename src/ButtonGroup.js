@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const ArrowIcon = () => (
   <svg
@@ -12,48 +12,26 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const OptionsBtn = ({
-  children,
-  value,
-  selectedLanguage,
-  setLanguage,
-  expand,
-}) => {
-  const isActive = value === selectedLanguage;
-  const handleClick = () => setLanguage(value);
+const ButtonGroup = ({ buttons, selectedLanguage, setLanguage, expand }) => {
+  return buttons.map((button) => {
+    const isActive = selectedLanguage === button.value;
+    const handleClick = () => setLanguage(button.value);
 
-  return (
-    <button
-      className={`${expand ? "expand-down" : ""} ${isActive ? "active" : ""}`}
-      onClick={handleClick}
-    >
-      {children}
-      {expand && (
-        <span>
-          <ArrowIcon />
-        </span>
-      )}
-    </button>
-  );
-};
-
-const ButtonGroup = ({ buttons }) => {
-  const [activeButton, setActiveButton] = useState(null);
-
-  return (
-    <div>
-      {buttons.map((button) => (
-        <OptionsBtn
-          key={button.value}
-          value={button.value}
-          isActive={activeButton === button.value}
-          onClick={() => setActiveButton(button.value)}
-        >
-          {button.label}
-        </OptionsBtn>
-      ))}
-    </div>
-  );
+    return (
+      <button
+        className={`${expand ? "expand-down" : ""} ${isActive ? "active" : ""}`}
+        onClick={handleClick}
+        value={button.value}
+      >
+        {button.label}
+        {expand && (
+          <span>
+            <ArrowIcon />
+          </span>
+        )}
+      </button>
+    );
+  });
 };
 
 export default ButtonGroup;

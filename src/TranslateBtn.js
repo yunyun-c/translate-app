@@ -25,12 +25,10 @@ const SortIcon = () => (
 const TranslateBtn = ({ translateTo, setTranslateTo }) => {
   return (
     <div className="translate-btns">
-      <div
-        className="language-btn"
-        value={translateTo}
-        onChange={(e) => setTranslateTo(e.target.value)}
-      >
+      <div className="language-btn">
         <ButtonGroup
+          value={translateTo}
+          onClick={(e) => setTranslateTo(e.target.value)}
           selectedLanguage={translateTo}
           setLanguage={setTranslateTo}
           buttons={[

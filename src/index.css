@@ -82,7 +82,7 @@ button {
 }
 
 button:hover,
-button:active {
+.active {
   color: var(--text-active-color);
   background-color: var(--btn-active-text-color);
   border-radius: 10px;

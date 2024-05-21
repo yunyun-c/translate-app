@@ -3,12 +3,10 @@ import ButtonGroup from "./ButtonGroup";
 
 const LanguageBtn = ({ language, setLanguage }) => {
   return (
-    <div
-      className="language-btn"
-      value={language}
-      onChange={(e) => setLanguage(e.target.value)}
-    >
+    <div className="language-btn">
       <ButtonGroup
+        value={language}
+        onClick={(e) => setLanguage(e.target.value)}
         selectedLanguage={language}
         setLanguage={setLanguage}
         buttons={[
